@@ -1,0 +1,28 @@
+type Resources = 
+ record {
+   gold: nat;
+   stone: nat;
+   wood: nat;
+ };
+type Production = 
+ record {
+   gold: nat;
+   stone: nat;
+   wood: nat;
+ };
+type GameState = 
+ record {
+   buildings: vec Building;
+   resources: Resources;
+ };
+type Building = 
+ record {
+   buildingType: text;
+   level: nat;
+   production: Production;
+ };
+service : {
+  buildStructure: (text) -> ();
+  getGameState: () -> (GameState) query;
+  upgradeBuilding: (nat) -> ();
+}
